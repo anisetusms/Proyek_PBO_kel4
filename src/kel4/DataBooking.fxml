@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane fx:id="DataBooking" prefHeight="523.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DataBookingController">
+
+
+    <!-- Tabel Data Booking -->
+    <TableView fx:id="tableView" layoutX="14.0" layoutY="50.0" prefHeight="400.0" prefWidth="760.0">
+        <columns>
+            <TableColumn fx:id="colNomor" text="No" prefWidth="50.0"/>
+            <TableColumn fx:id="colNama" text="Nama" prefWidth="120.0"/>
+            <TableColumn fx:id="colNamaLapangan" text="Nama Lapangan" prefWidth="150.0"/>
+            <TableColumn fx:id="colTanggalBooking" text="Tanggal" prefWidth="120.0"/>
+            <TableColumn fx:id="colJamMulai" text="Jam Mulai" prefWidth="100.0"/>
+            <TableColumn fx:id="colJamSelesai" text="Jam Selesai" prefWidth="100.0"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="120.0"/>
+        </columns>
+    </TableView>
+
+    <!-- Kontainer Pencarian -->
+    <HBox layoutX="14.0" layoutY="10.0" spacing="10.0">
+        <TextField fx:id="txtSearch" promptText="Cari Nama atau Lapangan..." prefWidth="600.0"/>
+        <ImageView fx:id="btnSearch" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#handleSearch">
+            <image>
+                <Image url="@../resources/search-icon.png"/> <!-- Path ikon search -->
+            </image>
+        </ImageView>
+    </HBox>
+
+    <!-- Tombol Kembali -->
+    <Button fx:id="btnKembali" layoutX="14.0" layoutY="470.0" onAction="#handleKembali" text="Kembali" prefWidth="100.0"/>
+
+</AnchorPane>
