@@ -7,15 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SceneController {
-    public static void changeScene(Stage stage, String fxmlFile) {
+    public static void changeScene(Stage stage, String fxmlFileName) {
         try {
-            FXMLLoader loader = new FXMLLoader(SceneController.class.getResource(fxmlFile));
+            FXMLLoader loader = new FXMLLoader(SceneController.class.getResource(fxmlFileName));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error saat mengganti scene: " + e.getMessage());
         }
     }
 }

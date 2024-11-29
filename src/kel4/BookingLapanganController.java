@@ -47,9 +47,7 @@ public class BookingLapanganController {
             return;
         }
 
-        // Gunakan try-with-resources untuk menutup resource secara otomatis
-        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM lapangan WHERE status = 'tersedia'");
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM lapangan WHERE status = 'tersedia'"); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 comboLapangan.getItems().add(rs.getString("nama_lapangan"));
@@ -98,11 +96,14 @@ public class BookingLapanganController {
                             return;
                         }
 
+                        // Mengambil ID user yang login
+                        int userId = LoginController.getLoggedInUserId();
+
                         // Menyimpan data booking
                         String bookingQuery = "INSERT INTO booking (user_id, lapangan_id, tanggal_booking, jam_mulai, jam_selesai, status) "
                                 + "VALUES (?, ?, ?, ?, ?, 'pending')";
                         try (PreparedStatement psBooking = conn.prepareStatement(bookingQuery)) {
-                            psBooking.setInt(1, 1);  // Menganggap pengguna yang login memiliki ID 1
+                            psBooking.setInt(1, userId);  // Menggunakan ID pengguna yang login
                             psBooking.setInt(2, lapanganId);
                             psBooking.setDate(3, tanggal);
                             psBooking.setTime(4, jamMulai);
@@ -124,16 +125,6 @@ public class BookingLapanganController {
         }
     }
 
-    // Validasi dan konversi format waktu
-    private Time validateTime(String timeStr) {
-        try {
-            return Time.valueOf(timeStr + ":00");
-        } catch (IllegalArgumentException e) {
-            return null;  // Format waktu tidak valid
-        }
-    }
-
-    // Menangani kembali ke menu utama
     @FXML
     private void handleBackToMenu(ActionEvent event) {
         try {
@@ -151,7 +142,14 @@ public class BookingLapanganController {
         }
     }
 
-    // Menampilkan alert
+    private Time validateTime(String timeStr) {
+        try {
+            return Time.valueOf(timeStr + ":00");
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
+
     private void showAlert(String title, String message, AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

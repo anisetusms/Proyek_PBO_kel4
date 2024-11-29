@@ -80,74 +80,80 @@ public class DataBookingController implements Initializable {
     }
 
     // Fungsi untuk memuat data dari database
-    private void loadData() {
-        bookingList.clear();
-        String sql = "SELECT b.id, u.nama AS nama_user, l.nama_lapangan, b.tanggal_booking, b.jam_mulai, b.jam_selesai, b.status "
-                   + "FROM booking b "
-                   + "JOIN users u ON b.user_id = u.id "
-                   + "JOIN lapangan l ON b.lapangan_id = l.id";
+// Fungsi untuk memuat data dari database
+private void loadData() {
+    bookingList.clear();
+    // Menambahkan ORDER BY untuk mengurutkan berdasarkan jam_mulai
+    String sql = "SELECT b.id, u.id AS user_id, u.nama AS nama_user, l.nama_lapangan, b.tanggal_booking, b.jam_mulai, b.jam_selesai, b.status "
+            + "FROM booking b "
+            + "JOIN users u ON b.user_id = u.id "
+            + "JOIN lapangan l ON b.lapangan_id = l.id "
+            + "ORDER BY b.tanggal_booking, b.jam_mulai ASC";
 
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
+    try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
 
-            while (rs.next()) {
-                bookingList.add(new Booking(
-                        rs.getInt("id"), rs.getString("nama_user"),
-                        rs.getString("nama_lapangan"),
-                        rs.getDate("tanggal_booking").toLocalDate(),
-                        rs.getTime("jam_mulai").toLocalTime(),
-                        rs.getTime("jam_selesai").toLocalTime(),
-                        rs.getString("status")
-                ));
-            }
-            tableView.setItems(bookingList);
-
-        } catch (SQLException e) {
-            System.err.println("Error saat memuat data: " + e.getMessage());
+        while (rs.next()) {
+            bookingList.add(new Booking(
+                    rs.getInt("id"),
+                    rs.getInt("user_id"), // Menambahkan userId dari hasil query
+                    rs.getString("nama_user"),
+                    rs.getString("nama_lapangan"),
+                    rs.getDate("tanggal_booking").toLocalDate(),
+                    rs.getTime("jam_mulai").toLocalTime(),
+                    rs.getTime("jam_selesai").toLocalTime(),
+                    rs.getString("status")
+            ));
         }
+        tableView.setItems(bookingList);
+
+    } catch (SQLException e) {
+        System.err.println("Error saat memuat data: " + e.getMessage());
     }
+}
 
-    // Fungsi pencarian data
-    @FXML
-    private void handleSearch() {
-        String searchKeyword = txtSearch.getText();
-        ObservableList<Booking> filteredData = FXCollections.observableArrayList();
-        String sql = "SELECT b.id, u.nama AS nama_user, l.nama_lapangan, b.tanggal_booking, b.jam_mulai, b.jam_selesai, b.status "
-                   + "FROM booking b "
-                   + "JOIN users u ON b.user_id = u.id "
-                   + "JOIN lapangan l ON b.lapangan_id = l.id "
-                   + "WHERE u.nama LIKE ? OR l.nama_lapangan LIKE ?";
+// Fungsi pencarian data dengan pengurutan berdasarkan jam_mulai
+@FXML
+private void handleSearch() {
+    String searchKeyword = txtSearch.getText();
+    ObservableList<Booking> filteredData = FXCollections.observableArrayList();
+    String sql = "SELECT b.id, u.id AS user_id, u.nama AS nama_user, l.nama_lapangan, b.tanggal_booking, b.jam_mulai, b.jam_selesai, b.status "
+            + "FROM booking b "
+            + "JOIN users u ON b.user_id = u.id "
+            + "JOIN lapangan l ON b.lapangan_id = l.id "
+            + "WHERE u.nama LIKE ? OR l.nama_lapangan LIKE ? "
+            + "ORDER BY b.tanggal_booking, b.jam_mulai ASC";  // Mengurutkan berdasarkan jam_mulai
 
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+    try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, "%" + searchKeyword + "%");
-            pstmt.setString(2, "%" + searchKeyword + "%");
-            ResultSet rs = pstmt.executeQuery();
+        pstmt.setString(1, "%" + searchKeyword + "%");
+        pstmt.setString(2, "%" + searchKeyword + "%");
+        ResultSet rs = pstmt.executeQuery();
 
-            while (rs.next()) {
-                filteredData.add(new Booking(
-                        rs.getInt("id"), rs.getString("nama_user"),
-                        rs.getString("nama_lapangan"),
-                        rs.getDate("tanggal_booking").toLocalDate(),
-                        rs.getTime("jam_mulai").toLocalTime(),
-                        rs.getTime("jam_selesai").toLocalTime(),
-                        rs.getString("status")
-                ));
-            }
-            tableView.setItems(filteredData);
-
-        } catch (SQLException e) {
-            System.err.println("Error saat mencari data: " + e.getMessage());
+        while (rs.next()) {
+            filteredData.add(new Booking(
+                    rs.getInt("id"),
+                    rs.getInt("user_id"), // Menambahkan userId
+                    rs.getString("nama_user"),
+                    rs.getString("nama_lapangan"),
+                    rs.getDate("tanggal_booking").toLocalDate(),
+                    rs.getTime("jam_mulai").toLocalTime(),
+                    rs.getTime("jam_selesai").toLocalTime(),
+                    rs.getString("status")
+            ));
         }
+        tableView.setItems(filteredData);
+
+    } catch (SQLException e) {
+        System.err.println("Error saat mencari data: " + e.getMessage());
     }
+}
+
 
     // Fungsi untuk kembali ke menu sebelumnya
-@FXML
-private void handleKembali() {
-    // Pastikan SceneController memiliki metode changeScene yang benar
-    Stage stage = (Stage) btnKembali.getScene().getWindow();
-    SceneController.changeScene(stage, "MenuUser.fxml"); // Pastikan "MenuUser.fxml" benar
-}
+    @FXML
+    private void handleKembali() {
+        // Pastikan SceneController memiliki metode changeScene yang benar
+        Stage stage = (Stage) btnKembali.getScene().getWindow();
+        SceneController.changeScene(stage, "MenuUser.fxml"); // Pastikan "MenuUser.fxml" benar
+    }
 }

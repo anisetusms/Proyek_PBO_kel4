@@ -18,25 +18,25 @@ import kel4.SceneController;
 
 /**
  * FXML Controller class
- * 
+ *
  * @author ANISETUS
  */
 public class LoginController {
 
     @FXML
-    private ImageView imageLogo;
-
-    @FXML
     private TextField txtNama;
-
     @FXML
     private PasswordField txtPassword;
-
     @FXML
     private Button btnLogin;
-
     @FXML
     private Button btnRegistrasi;
+
+    private static int loggedInUserId;  // Static variable to store user ID
+
+    public static int getLoggedInUserId() {
+        return loggedInUserId;
+    }
 
     @FXML
     private void handleLogin(ActionEvent event) {
@@ -49,14 +49,14 @@ public class LoginController {
         }
 
         String sql = "SELECT * FROM users WHERE nama = ? AND PASSWORD = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, nama);
             pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
+                loggedInUserId = rs.getInt("id");  // Store user ID after successful login
                 String role = rs.getString("ROLE");
                 Stage stage = (Stage) btnLogin.getScene().getWindow();
 
@@ -76,12 +76,12 @@ public class LoginController {
 
     @FXML
     private void handleRegistrasi(ActionEvent event) {
+        // Aksi saat tombol Registrasi diklik
+        System.out.println("Navigating to Registration Page");
+
+        // Ganti scene ke halaman registrasi, pastikan Anda memiliki fxml untuk registrasi
         Stage stage = (Stage) btnRegistrasi.getScene().getWindow();
-        try {
-            SceneController.changeScene(stage, "Registrasi.fxml");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Terjadi kesalahan saat membuka halaman registrasi: " + e.getMessage());
-        }
+        SceneController.changeScene(stage, "Registrasi.fxml");
     }
+
 }

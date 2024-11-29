@@ -6,50 +6,44 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="BookingLapangan" prefHeight="523.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.BookingLapanganController">
+<AnchorPane fx:id="BookingLapangan" prefHeight="550.0" prefWidth="850.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.BookingLapanganController">
     <children>
-        <Label layoutX="267.0" layoutY="40.0" text="NUMERO SADA FUTSAL" AnchorPane.topAnchor="40.0">
-            <font>
-                <Font name="Bell MT Bold" size="30.0" />
-            </font>
-            <style>
-                -fx-text-fill: #2e3b4e; -fx-font-size: 30px; -fx-font-weight: bold;
-            </style>
-        </Label>
+        <!-- Header -->
+        <Label fx:id="headerLabel" layoutX="220.0" layoutY="30.0" styleClass="header-label" text="NUMERO SADA FUTSAL" />
 
-        <GridPane layoutX="100.0" layoutY="130.0" prefHeight="300.0" prefWidth="541.0" vgap="20.0" hgap="20.0" AnchorPane.topAnchor="130.0" AnchorPane.leftAnchor="100.0">
-            <Label text="Nama Lapangan">
-                <font>
-                    <Font name="Bell MT" size="16.0" />
-                </font>
-            </Label>
-            <Label text="Tanggal Booking" GridPane.rowIndex="1">
-                <font>
-                    <Font name="Bell MT" size="16.0" />
-                </font>
-            </Label>
-            <Label text="Jam Mulai" GridPane.rowIndex="2">
-                <font>
-                    <Font name="Bell MT" size="16.0" />
-                </font>
-            </Label>
-            <Label text="Jam Selesai" GridPane.rowIndex="3">
-                <font>
-                    <Font name="Bell MT" size="16.0" />
-                </font>
-            </Label>
+        <!-- Form -->
+        <GridPane fx:id="formGrid" hgap="20.0" layoutX="150.0" layoutY="100.0" prefWidth="550.0" styleClass="gridpane" vgap="20.0">
+            <children>
+                <Label styleClass="label" text="Nama Lapangan" />
+                <ComboBox fx:id="comboLapangan" promptText="Pilih Lapangan" styleClass="combo-box" GridPane.columnIndex="1" />
 
-            <ComboBox fx:id="comboLapangan" GridPane.columnIndex="1" promptText="Pilih Lapangan" />
-            <DatePicker fx:id="tanggalBooking" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtJamMulai" GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="Jam Mulai (HH:MM)" />
-            <TextField fx:id="txtJamSelesai" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="Jam Selesai (HH:MM)" />
+                <Label styleClass="label" text="Tanggal Booking" GridPane.rowIndex="1" />
+                <DatePicker fx:id="tanggalBooking" styleClass="date-picker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label styleClass="label" text="Jam Mulai" GridPane.rowIndex="2" />
+                <TextField fx:id="txtJamMulai" promptText="Jam Mulai (HH:MM)" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label styleClass="label" text="Jam Selesai" GridPane.rowIndex="3" />
+                <TextField fx:id="txtJamSelesai" promptText="Jam Selesai (HH:MM)" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
 
-        <Button fx:id="btnBook" layoutX="350.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleBooking" prefHeight="40.0" prefWidth="120.0" text="Booking" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
-
-        <Button fx:id="btnKembali" layoutX="706.0" layoutY="470.0" mnemonicParsing="false" onAction="#handleBackToMenu" text="Kembali" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 14px;"/>
+        <!-- Buttons -->
+        <Button fx:id="btnBook" layoutX="325.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleBooking" prefHeight="40.0" prefWidth="120.0" styleClass="button" text="Booking" />
+        <Button fx:id="btnKembali" layoutX="500.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleBackToMenu" prefHeight="40.0" prefWidth="120.0" styleClass="button" text="Kembali" />
     </children>
 </AnchorPane>

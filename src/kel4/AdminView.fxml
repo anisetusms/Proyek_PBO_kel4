@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="620.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.AdminViewController">
+    <children>
+        <!-- Label dan TableView untuk Menampilkan Data Pengguna -->
+        <Label layoutX="20.0" layoutY="20.0" text="Manajemen Akun Pengguna" />
+        
+        <TableView fx:id="tableViewUsers" layoutX="20.0" layoutY="60.0" prefHeight="200.0" prefWidth="500.0">
+            <columns>
+                <TableColumn fx:id="columnId" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="columnUsername" prefWidth="150.0" text="Username" />
+                <TableColumn fx:id="columnNama" prefWidth="150.0" text="Nama Lengkap" />
+                <TableColumn fx:id="columnEmail" prefWidth="150.0" text="Email" />
+                <TableColumn fx:id="columnRole" prefWidth="100.0" text="Role" />
+            </columns>
+        </TableView>
+        
+        <!-- Tombol CRUD -->
+        <Button layoutX="20.0" layoutY="300.0" onAction="#handleAddUser" text="Tambah Akun" />
+        <Button layoutX="179.0" layoutY="300.0" onAction="#handleEditUser" text="Edit Akun" />
+        <Button layoutX="310.0" layoutY="300.0" onAction="#handleDeleteUser" text="Hapus Akun" />
+        <Button fx:id="btnKembali" layoutX="500.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleKembali" prefHeight="40.0" prefWidth="120.0" styleClass="button" text="Kembali" />
+    </children>
+</AnchorPane>

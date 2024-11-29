@@ -1,22 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package kel4;
 
-/**
- *
- * @author ANISETUS B. MANALU
- */
 public class Lapangan {
     private int id;
-    private String name;
+    private String namaLapangan;
+    private double harga;
+    private String status;
 
-    public Lapangan(int id, String name) {
+    public Lapangan(int id, String namaLapangan, double harga, String status) {
         this.id = id;
-        this.name = name;
+        this.namaLapangan = namaLapangan;
+        this.harga = harga;
+        this.status = status;
     }
 
+    // Getter and Setter methods
     public int getId() {
         return id;
     }
@@ -25,17 +22,27 @@ public class Lapangan {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNamaLapangan() {
+        return namaLapangan;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNamaLapangan(String namaLapangan) {
+        this.namaLapangan = namaLapangan;
     }
 
-    @Override
-    public String toString() {
-        return name;  // Ini yang akan tampil di ComboBox
+    public double getHarga() {
+        return harga;
+    }
+
+    public void setHarga(double harga) {
+        this.harga = harga;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
-

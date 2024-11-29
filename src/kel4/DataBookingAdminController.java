@@ -64,16 +64,18 @@ public class DataBookingAdminController implements Initializable {
     // Fungsi untuk memuat data booking dari database
     private void loadData() {
         bookingList.clear();
-        String sql = "SELECT b.id, u.nama AS nama_user, l.nama_lapangan, b.tanggal_booking, b.jam_mulai, b.jam_selesai, b.status "
+        String sql = "SELECT b.id, u.id AS user_id, u.nama AS nama_user, l.nama_lapangan, b.tanggal_booking, b.jam_mulai, b.jam_selesai, b.status "
                 + "FROM booking b "
                 + "JOIN users u ON b.user_id = u.id "
-                + "JOIN lapangan l ON b.lapangan_id = l.id";
+                + "JOIN lapangan l ON b.lapangan_id = l.id "
+                + "ORDER BY b.status, b.tanggal_booking ASC, b.jam_mulai ASC";  // Mengurutkan berdasarkan tanggal dan jam mulai
 
         try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
                 bookingList.add(new Booking(
                         rs.getInt("id"),
+                        rs.getInt("user_id"), // Mendapatkan userId dari query
                         rs.getString("nama_user"),
                         rs.getString("nama_lapangan"),
                         rs.getDate("tanggal_booking").toLocalDate(),
@@ -97,7 +99,7 @@ public class DataBookingAdminController implements Initializable {
             int bookingId = selectedBooking.getId(); // Mengambil ID booking
             try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement("UPDATE booking SET status = ? WHERE id = ?")) {
 
-                pstmt.setString(1, "Diterima");
+                pstmt.setString(1, "diterima");
                 pstmt.setInt(2, bookingId);
                 pstmt.executeUpdate();
 
@@ -129,7 +131,7 @@ public class DataBookingAdminController implements Initializable {
     private void handleTolak() {
         Booking selectedBooking = tableView.getSelectionModel().getSelectedItem();
         if (selectedBooking != null) {
-            updateStatus(selectedBooking.getId(), "Ditolak");
+            updateStatus(selectedBooking.getId(), "ditolak");
         } else {
             showAlert("Pilih Data", "Silakan pilih data booking yang ingin ditolak.");
         }

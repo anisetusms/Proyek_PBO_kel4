@@ -21,14 +21,32 @@ public class MenuAdminController{
 
     @FXML
     private Button btnDaftarBooking;
+    
+    @FXML
+    private Button btnKelolaLapangan;
 
     @FXML
     private Button btnLogout;
+    
+    @FXML
+    private Button btnKelolaUser;
 
     @FXML
     private void handleDaftarBookingClick(ActionEvent event) {
         Stage stage = (Stage) btnDaftarBooking.getScene().getWindow();
         SceneController.changeScene(stage, "DataBookingAdmin.fxml");
+    }
+    
+    @FXML
+    private void handleKelolaLapanganClick(ActionEvent event) {
+        Stage stage = (Stage) btnKelolaLapangan.getScene().getWindow();
+        SceneController.changeScene(stage, "Lapangan.fxml");
+    }
+    
+        @FXML
+    private void handleKelolaUserClick(ActionEvent event) {
+        Stage stage = (Stage) btnKelolaUser.getScene().getWindow();
+        SceneController.changeScene(stage, "AdminView.fxml");
     }
 
     @FXML

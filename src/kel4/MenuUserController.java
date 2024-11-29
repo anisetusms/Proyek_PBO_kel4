@@ -28,6 +28,10 @@ public class MenuUserController {
 
     @FXML
     private Button btnLogout;
+    
+    @FXML
+    private Button btnDaftarLapangan;
+
 
     /**
      * Handle event for Booking Lapangan button
@@ -45,6 +49,12 @@ public class MenuUserController {
     private void handleDataBookingClick(ActionEvent event) {
         Stage stage = (Stage) btnDataBooking.getScene().getWindow();
         SceneController.changeScene(stage, "DataBooking.fxml");
+    }
+    
+        @FXML
+    private void handleDaftarLapanganClick(ActionEvent event) {
+        Stage stage = (Stage) btnDaftarLapangan.getScene().getWindow();
+        SceneController.changeScene(stage, "DaftarLapangan.fxml");
     }
 
     /**

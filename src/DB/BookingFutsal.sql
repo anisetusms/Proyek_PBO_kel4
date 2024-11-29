@@ -43,3 +43,8 @@ CREATE TABLE IF NOT EXISTS pembayaran (
     status_pembayaran ENUM('lunas', 'belum lunas') DEFAULT 'belum lunas',
     FOREIGN KEY (booking_id) REFERENCES booking(id) ON DELETE CASCADE
 );
+
+ALTER TABLE booking MODIFY STATUS VARCHAR(10);
+ALTER TABLE booking MODIFY STATUS ENUM('Diterima', 'Ditolak', 'Pending') DEFAULT 'Pending';
+
+

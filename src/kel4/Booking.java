@@ -9,6 +9,7 @@ import java.time.LocalTime;
  */
 public class Booking {
     private int id;
+    private int userId;  // Menyimpan ID pengguna yang melakukan booking
     private String nama;
     private String namaLapangan;
     private LocalDate tanggalBooking;
@@ -16,10 +17,10 @@ public class Booking {
     private LocalTime jamSelesai;
     private String status;
 
-    // Konstruktor
-    public Booking(int id, String nama, String namaLapangan, LocalDate tanggalBooking, 
-                   LocalTime jamMulai, LocalTime jamSelesai, String status) {
+    // Constructor
+    public Booking(int id, int userId, String nama, String namaLapangan, LocalDate tanggalBooking, LocalTime jamMulai, LocalTime jamSelesai, String status) {
         this.id = id;
+        this.userId = userId;  // Menyimpan userId
         this.nama = nama;
         this.namaLapangan = namaLapangan;
         this.tanggalBooking = tanggalBooking;
@@ -28,7 +29,23 @@ public class Booking {
         this.status = status;
     }
 
-    // Getters dan Setters
+    // Getter dan Setter
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;  // Mendapatkan ID pengguna
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public String getNama() {
         return nama;
     }
@@ -75,14 +92,5 @@ public class Booking {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    // Setter untuk ID (opsional jika Anda perlu mengubah ID)
-    public void setId(int id) {
-        this.id = id;
     }
 }
