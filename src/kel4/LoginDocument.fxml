@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -13,47 +14,40 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="LoginDocument" alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.LoginController">
+<VBox id="LoginDocument" alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.LoginController">
     
     <children>
         <!-- Logo -->
         <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/logo.jpg" />
+                <Image url="@../images/logo.png" />
             </image>
         </ImageView>
 
         <!-- Title -->
-        <Label alignment="CENTER" text="NUMERO SADA FUTSAL">
+        <Label alignment="CENTER" prefHeight="26.0" prefWidth="202.0" text="NUMERO SADA FUTSAL" textAlignment="CENTER">
             <font>
-                <Font name="Bell MT Bold" size="27.0" />
+                <Font name="Bell MT Bold" size="16.0" />
             </font>
         </Label>
 
         <!-- Form -->
         <GridPane alignment="CENTER" hgap="10.0" vgap="15.0">
             <columnConstraints>
-                <ColumnConstraints prefWidth="120.0" />
                 <ColumnConstraints prefWidth="300.0" />
             </columnConstraints>
             <children>
-                <!-- Nama -->
-                <Label alignment="CENTER_RIGHT" text="Nama :" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                    <font>
-                        <Font name="Bell MT Bold" size="19.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="txtNama" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
-                <!-- Password -->
-                <Label alignment="CENTER_RIGHT" text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="Bell MT Bold" size="19.0" />
-                    </font>
-                </Label>
-                <PasswordField fx:id="txtPassword" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtNama" prefWidth="300.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bell MT" size="12.0" />
+               </font></TextField>
+                <PasswordField fx:id="txtPassword" prefWidth="300.0" GridPane.rowIndex="3" />
+            <Label text="Nama :" />
+            <Label text="Password :" GridPane.rowIndex="2" />
             </children>
          <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
             <RowConstraints />
             <RowConstraints />
          </rowConstraints>
@@ -62,9 +56,13 @@
         <!-- Buttons -->
         <HBox alignment="CENTER" spacing="20.0">
             <children>
-                <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" prefWidth="100.0" text="Login" />
-                <Button fx:id="btnRegistrasi" mnemonicParsing="false" onAction="#handleRegistrasi" prefWidth="100.0" text="Registrasi" />
+                <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" prefHeight="38.0" prefWidth="138.0" text="Login" />
+                <Button fx:id="btnRegistrasi" mnemonicParsing="false" onAction="#handleRegistrasi" prefHeight="38.0" prefWidth="136.0" text="Registrasi" />
             </children>
         </HBox>
     </children>
+   <stylesheets>
+      <URL value="@style4.css" />
+      <URL value="@Login_Document.css" />
+   </stylesheets>
 </VBox>

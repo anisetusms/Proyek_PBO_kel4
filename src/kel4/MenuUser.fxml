@@ -23,7 +23,7 @@
         <!-- Logo Aplikasi -->
         <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" layoutX="346.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/logo.jpg" />
+                <Image url="@../images/logo.png" />
             </image>
         </ImageView>
 

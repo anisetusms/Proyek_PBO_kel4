@@ -16,12 +16,12 @@
       <!-- Logo -->
       <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" layoutX="346.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/logo.jpg" />
+            <Image url="@../images/logo.png" />
          </image>
       </ImageView>
       
       <!-- Title -->
-      <Label layoutX="298.0" layoutY="170.0" text="NUMERO SADA FUTSAL">
+      <Label layoutX="321.0" layoutY="170.0" text="NUMERO SADA FUTSAL">
          <font>
             <Font name="Bell MT Bold" size="27.0" />
          </font>
@@ -30,9 +30,9 @@
       <!-- Buttons Section -->
       <VBox layoutX="182.0" layoutY="237.0" prefHeight="250.0" prefWidth="467.0" spacing="20.0">
          <children>
-            <GridPane prefHeight="227.0" prefWidth="467.0" hgap="10" vgap="15">
+            <GridPane hgap="10" prefHeight="227.0" prefWidth="467.0" vgap="15">
                <columnConstraints>
-                  <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />

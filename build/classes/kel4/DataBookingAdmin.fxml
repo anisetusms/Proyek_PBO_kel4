@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="kel4.DataBookingAdminController">
+<AnchorPane prefHeight="429.0" prefWidth="761.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DataBookingAdminController">
     <children>
-        <Label text="Data Booking" layoutX="20.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+        <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Data Booking" />
 
         <TableView fx:id="tableView" layoutX="20.0" layoutY="60.0" prefHeight="300.0" prefWidth="600.0">
             <columns>
-                <TableColumn fx:id="colNama" text="Nama" prefWidth="100.0" />
-                <TableColumn fx:id="colNamaLapangan" text="Nama Lapangan" prefWidth="120.0" />
-                <TableColumn fx:id="colTanggalBooking" text="Tanggal Booking" prefWidth="120.0" />
-                <TableColumn fx:id="colJamMulai" text="Jam Mulai" prefWidth="80.0" />
-                <TableColumn fx:id="colJamSelesai" text="Jam Selesai" prefWidth="80.0" />
-                <TableColumn fx:id="colStatus" text="Status" prefWidth="100.0" />
+                <TableColumn fx:id="colNama" prefWidth="100.0" text="Nama" />
+                <TableColumn fx:id="colNamaLapangan" prefWidth="120.0" text="Nama Lapangan" />
+                <TableColumn fx:id="colTanggalBooking" prefWidth="120.0" text="Tanggal Booking" />
+                <TableColumn fx:id="colJamMulai" prefWidth="80.0" text="Jam Mulai" />
+                <TableColumn fx:id="colJamSelesai" prefWidth="80.0" text="Jam Selesai" />
+                <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
             </columns>
         </TableView>
 
-        <Button fx:id="btnTerima" text="Terima" layoutX="650.0" layoutY="100.0" prefWidth="100.0"
-                onAction="#handleTerima" />
-        <Button fx:id="btnTolak" text="Tolak" layoutX="650.0" layoutY="150.0" prefWidth="100.0"
-                onAction="#handleTolak" />
-        <Button fx:id="btnKembali" text="Kembali" layoutX="650.0" layoutY="300.0" prefWidth="100.0"
-                onAction="#handleKembali" />
+        <Button fx:id="btnTerima" layoutX="650.0" layoutY="100.0" onAction="#handleTerima" prefWidth="100.0" text="Terima" />
+        <Button fx:id="btnTolak" layoutX="650.0" layoutY="150.0" onAction="#handleTolak" prefWidth="100.0" text="Tolak" />
+        <Button fx:id="btnKembali" layoutX="650.0" layoutY="300.0" onAction="#handleKembali" prefWidth="100.0" text="Kembali" />
     </children>
 </AnchorPane>
