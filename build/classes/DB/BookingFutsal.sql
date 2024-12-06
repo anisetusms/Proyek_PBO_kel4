@@ -17,6 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+<<<<<<< Updated upstream
 --
 -- Database: `bookingfutsal`
 --
@@ -199,3 +200,19 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+=======
+-- Tabel Pembayaran (Opsional)
+CREATE TABLE IF NOT EXISTS pembayaran (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    booking_id INT NOT NULL,
+    jumlah_bayar DECIMAL(10, 2) NOT NULL,
+    tanggal_pembayaran TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status_pembayaran ENUM('lunas', 'belum lunas') DEFAULT 'belum lunas',
+    FOREIGN KEY (booking_id) REFERENCES booking(id) ON DELETE CASCADE
+);
+
+ALTER TABLE booking MODIFY STATUS VARCHAR(10);
+ALTER TABLE booking MODIFY STATUS ENUM('Diterima', 'Ditolak', 'Pending') DEFAULT 'Pending';
+
+
+>>>>>>> Stashed changes

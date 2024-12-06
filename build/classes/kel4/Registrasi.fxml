@@ -16,22 +16,38 @@
 
 <AnchorPane id="Registrasi" fx:id="FormRegistrasi" prefHeight="523.0" prefWidth="831.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.RegistrasiController">
    <children>
+<<<<<<< Updated upstream
       <Label layoutX="322.0" layoutY="154.0" text="NUMERO SADA FUTSAL">
+=======
+      <Label layoutX="363.0" layoutY="153.0" text="NUMERO SADA FUTSAL">
+>>>>>>> Stashed changes
          <font>
             <Font name="Bell MT Bold" size="27.0" />
          </font>
       </Label>
+<<<<<<< Updated upstream
       <ImageView fitHeight="180.0" fitWidth="140.0" layoutX="346.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+=======
+      <ImageView fitHeight="180.0" fitWidth="140.0" layoutX="388.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> Stashed changes
          <image>
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
+<<<<<<< Updated upstream
       <Label layoutX="355.0" layoutY="188.0" text="Registrasi Akun">
+=======
+      <Label layoutX="327.0" layoutY="188.0" text="Registrasi Akun">
+>>>>>>> Stashed changes
          <font>
             <Font name="Bell MT" size="19.0" />
          </font>
       </Label>
+<<<<<<< Updated upstream
       <GridPane hgap="10.0" layoutX="145.0" layoutY="238.0" prefHeight="140.0" prefWidth="541.0" vgap="10.0">
+=======
+      <GridPane hgap="10.0" layoutX="187.0" layoutY="224.0" prefHeight="140.0" prefWidth="541.0" vgap="10.0">
+>>>>>>> Stashed changes
          <columnConstraints>
             <ColumnConstraints prefWidth="135.0" />
             <ColumnConstraints prefWidth="406.0" />
@@ -63,6 +79,7 @@
             <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+<<<<<<< Updated upstream
       <HBox prefHeight="100.0" prefWidth="200.0" />
       <HBox layoutX="216.0" layoutY="378.0" prefHeight="45.0" prefWidth="447.0">
          <children>
@@ -78,5 +95,8 @@
             </Button>
          </children>
       </HBox>
+=======
+      <Button fx:id="btnSignUp" layoutX="397.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="39.0" prefWidth="122.0" text="Sign Up" />
+>>>>>>> Stashed changes
    </children>
 </AnchorPane>

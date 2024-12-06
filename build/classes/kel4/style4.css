@@ -12,11 +12,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 /* GLOBAL STYLE */
 .root {
     -fx-font-family: 'Arial', sans-serif;
+<<<<<<< Updated upstream
     -fx-background-color: #100f11;
 }
 
 #FormRegistrasi{
     -fx-alignment: center;
+=======
+    -fx-background-color: linear-gradient(to bottom, #a8e063, #56ab2f); /* Hijau rumput */
+>>>>>>> Stashed changes
 }
 
 /* HEADER LABEL */
@@ -43,17 +47,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 /* LABEL STYLE */
 .label {
+<<<<<<< Updated upstream
     -fx-text-fill: #60B478;
+=======
+    -fx-text-fill: #37474f;
+>>>>>>> Stashed changes
     -fx-font-size: 16px;
     -fx-font-weight: bold;
 }
 
 /* TEXTFIELD STYLE */
 .text-field {
+<<<<<<< Updated upstream
     -fx-border-radius: 8px;
     -fx-background-radius: 8px;
     -fx-padding: 8px;
     -fx-background-color: #d3d3d3;
+=======
+    -fx-border-color: #64b5f6;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px;
+    -fx-background-color: #e3f2fd;
+>>>>>>> Stashed changes
 }
 
 .text-field:focused {
@@ -96,6 +112,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-width: 0;
     -fx-padding: 10px 20px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 3, 3);
+<<<<<<< Updated upstream
     -fx-background-color: #9a7cf8;
     -fx-text-fill: #2d2d2d;
 }
@@ -103,6 +120,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button:hover{
     -fx-background-color: #2d2d2d;
     -fx-text-fill: #9a7cf8;
+=======
+}
+
+/* BOOK BUTTON */
+#btnBook {
+    -fx-background-color: linear-gradient(to right, #42a5f5, #64b5f6); /* Biru */
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+>>>>>>> Stashed changes
 }
 
 #btnBook:hover {

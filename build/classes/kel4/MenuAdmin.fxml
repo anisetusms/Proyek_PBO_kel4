@@ -16,12 +16,20 @@
       <!-- Logo -->
       <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" layoutX="346.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
+<<<<<<< Updated upstream
             <Image url="@../images/logo.png" />
+=======
+            <Image url="@../images/logo.jpg" />
+>>>>>>> Stashed changes
          </image>
       </ImageView>
       
       <!-- Title -->
+<<<<<<< Updated upstream
       <Label layoutX="321.0" layoutY="170.0" text="NUMERO SADA FUTSAL">
+=======
+      <Label layoutX="298.0" layoutY="170.0" text="NUMERO SADA FUTSAL">
+>>>>>>> Stashed changes
          <font>
             <Font name="Bell MT Bold" size="27.0" />
          </font>
@@ -30,25 +38,38 @@
       <!-- Buttons Section -->
       <VBox layoutX="182.0" layoutY="237.0" prefHeight="250.0" prefWidth="467.0" spacing="20.0">
          <children>
+<<<<<<< Updated upstream
             <GridPane hgap="10" prefHeight="227.0" prefWidth="467.0" vgap="15">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+=======
+            <GridPane prefHeight="227.0" prefWidth="467.0" hgap="10" vgap="15">
+               <columnConstraints>
+                  <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+>>>>>>> Stashed changes
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+<<<<<<< Updated upstream
                   <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   
+=======
+>>>>>>> Stashed changes
                </rowConstraints>
 
                <!-- Buttons -->
                <Button fx:id="btnDaftarBooking" mnemonicParsing="false" onAction="#handleDaftarBookingClick" prefHeight="40.0" prefWidth="473.0" text="Daftar Booking" GridPane.rowIndex="0" />
                <Button fx:id="btnKelolaLapangan" mnemonicParsing="false" onAction="#handleKelolaLapanganClick" prefHeight="40.0" prefWidth="473.0" text="Kelola Lapangan" GridPane.rowIndex="1" />
                <Button fx:id="btnKelolaUser" mnemonicParsing="false" onAction="#handleKelolaUserClick" prefHeight="40.0" prefWidth="473.0" text="Data User" GridPane.rowIndex="2" />
+<<<<<<< Updated upstream
                <Button fx:id="btnKelolaPembayaran" mnemonicParsing="false" onAction="#handleKelolaPembayaranClick" prefHeight="40.0" prefWidth="473.0" text="Pembayaran" GridPane.rowIndex="3" />
                <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="473.0" text="Logout" GridPane.rowIndex="4" />
+=======
+               <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#handleLogout" prefHeight="40.0" prefWidth="473.0" text="Logout" GridPane.rowIndex="3" />
+>>>>>>> Stashed changes
             </GridPane>
          </children>
       </VBox>
