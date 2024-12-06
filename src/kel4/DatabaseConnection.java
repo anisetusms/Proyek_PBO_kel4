@@ -15,7 +15,7 @@ public class DatabaseConnection {
 
     private static final String URL = "jdbc:mysql://localhost/bookingfutsal";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "anisetus";
 
      public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);

@@ -1,4 +1,4 @@
-    package kel4;
+package kel4;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- * 
+ *
  * @author ANISETUS
  */
 public class RegistrasiController {
@@ -27,6 +27,9 @@ public class RegistrasiController {
     private Button btnSignUp;
 
     @FXML
+    private Button btnKembali;
+
+    @FXML
     private void handleSignUp(ActionEvent event) {
         String nama = txtNama.getText().trim();
         String email = txtEmail.getText().trim();
@@ -39,8 +42,7 @@ public class RegistrasiController {
         }
 
         String sql = "INSERT INTO users (nama, email, PASSWORD, ROLE) VALUES (?, ?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // Set parameter untuk query SQL
             pstmt.setString(1, nama);
@@ -63,5 +65,12 @@ public class RegistrasiController {
             e.printStackTrace();
             System.out.println("Terjadi kesalahan saat melakukan registrasi: " + e.getMessage());
         }
+    }
+
+    @FXML
+    private void handleKembali() {
+        // Pastikan SceneController memiliki metode changeScene yang benar
+        Stage stage = (Stage) btnKembali.getScene().getWindow();
+        SceneController.changeScene(stage, "LoginDocument.fxml");
     }
 }

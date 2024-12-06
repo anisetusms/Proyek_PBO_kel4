@@ -17,33 +17,42 @@ import javafx.stage.Stage;
  *
  * @author ANISETUS B. MANALU
  */
-public class MenuAdminController{
+public class MenuAdminController {
 
     @FXML
     private Button btnDaftarBooking;
-    
+
     @FXML
     private Button btnKelolaLapangan;
 
     @FXML
     private Button btnLogout;
-    
+
     @FXML
     private Button btnKelolaUser;
+
+    @FXML
+    private Button btnKelolaPembayaran;
 
     @FXML
     private void handleDaftarBookingClick(ActionEvent event) {
         Stage stage = (Stage) btnDaftarBooking.getScene().getWindow();
         SceneController.changeScene(stage, "DataBookingAdmin.fxml");
     }
-    
+
     @FXML
     private void handleKelolaLapanganClick(ActionEvent event) {
         Stage stage = (Stage) btnKelolaLapangan.getScene().getWindow();
         SceneController.changeScene(stage, "Lapangan.fxml");
     }
-    
-        @FXML
+
+    @FXML
+    private void handleKelolaPembayaranClick(ActionEvent event) {
+        Stage stage = (Stage) btnKelolaPembayaran.getScene().getWindow();
+        SceneController.changeScene(stage, "AdminPembayaran.fxml");
+    }
+
+    @FXML
     private void handleKelolaUserClick(ActionEvent event) {
         Stage stage = (Stage) btnKelolaUser.getScene().getWindow();
         SceneController.changeScene(stage, "AdminView.fxml");
