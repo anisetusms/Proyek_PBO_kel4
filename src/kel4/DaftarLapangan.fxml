@@ -7,29 +7,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="551.0" prefWidth="834.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DaftarLapanganController">
+<AnchorPane prefHeight="551.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DaftarLapanganController">
    <children>
       <!-- Main Container -->
-      <VBox alignment="CENTER" layoutX="125.0" layoutY="50.0" prefHeight="500.0" prefWidth="600.0" spacing="30.0">
+      <VBox alignment="CENTER" layoutX="117.0" layoutY="26.0" prefHeight="500.0" prefWidth="600.0" spacing="30.0">
          <children>
             <!-- Header Label -->
-            <Label styleClass="header-label" text="Daftar Lapangan" />
-
+            <Label styleClass="header-label" text="Daftar Lapangan" textFill="#60b478">
+               <font>
+                  <Font name="Bell MT Bold" size="28.0" />
+               </font>
+            </Label>
+      
             <!-- TableView for Listing -->
             <TableView fx:id="tableView" prefHeight="350.0" prefWidth="657.0" styleClass="table-view">
                <columns>
-                  <TableColumn fx:id="colNamaLapangan" prefWidth="250.0" text="Nama Lapangan" />
-                  <TableColumn fx:id="colHarga" prefWidth="175.0" text="Harga" />
-                  <TableColumn fx:id="colStatus" prefWidth="175.0" text="Status" />
+                  <TableColumn fx:id="colNamaLapangan" prefWidth="182.40000915527344" text="Nama Lapangan" />
+                  <TableColumn fx:id="colHarga" prefWidth="190.39996337890625" text="Harga" />
+                  <TableColumn fx:id="colStatus" prefWidth="229.5999755859375" text="Status" />
                </columns>
             </TableView>
-
+      
             <!-- Button Container -->
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button fx:id="btnKembali" onAction="#handleKembali" prefWidth="150.0" styleClass="back-button" text="Kembali" />
-                  <Button fx:id="btnBookingLapangan" onAction="#handleBookingLapanganClick" prefWidth="150.0" styleClass="book-button" text="Booking" />
+                  <Button fx:id="btnBookingLapangan" alignment="CENTER" onAction="#handleBookingLapanganClick" prefWidth="150.0" style="-fx-background-color: #60b478;" styleClass="book-button" text="Booking" />
+                  <Button fx:id="btnKembali" alignment="CENTER" onAction="#handleKembali" prefWidth="150.0" style="-fx-background-color: grey;" styleClass="back-button" text="Kembali" textFill="WHITE" />
                </children>
             </HBox>
          </children>

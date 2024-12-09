@@ -1,41 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="DataBooking" prefHeight="523.0" prefWidth="926.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DataBookingController">
 
-
-    <!-- Tabel Data Booking -->
-    <TableView fx:id="tableView" layoutX="135.0" layoutY="50.0" prefHeight="401.0" prefWidth="661.0">
-        <columns>
-            <TableColumn fx:id="colNomor" prefWidth="50.0" text="No" />
-            <TableColumn fx:id="colNama" prefWidth="120.0" text="Nama" />
-            <TableColumn fx:id="colNamaLapangan" prefWidth="150.0" text="Nama Lapangan" />
-            <TableColumn fx:id="colTanggalBooking" prefWidth="120.0" text="Tanggal" />
-            <TableColumn fx:id="colJamMulai" prefWidth="100.0" text="Jam Mulai" />
-            <TableColumn fx:id="colJamSelesai" prefWidth="100.0" text="Jam Selesai" />
-            <TableColumn fx:id="colStatus" prefWidth="120.0" text="Status" />
-        </columns>
-    </TableView>
-
-    <!-- Kontainer Pencarian -->
-    <HBox layoutX="14.0" layoutY="10.0" spacing="10.0">
-        <ImageView fx:id="btnSearch" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#handleSearch">
-            <image>
-                <Image url="@../resources/search-icon.png" /> <!-- Path ikon search -->
-            </image>
-        </ImageView>
-    </HBox>
-
-    <!-- Tombol Kembali -->
-    <Button fx:id="btnKembali" layoutX="14.0" layoutY="470.0" onAction="#handleKembali" prefWidth="100.0" text="Kembali" />
-     <TextField fx:id="txtSearch" layoutX="163.0" layoutY="8.0" prefWidth="600.0" promptText="Cari Nama atau Lapangan..." />
-
-</AnchorPane>
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DataBookingController">
+   <children>
+        <TextField fx:id="txtSearch" prefHeight="26.0" prefWidth="662.0" promptText="Cari Nama atau Lapangan...">
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </TextField>
+   
+            
+                <!-- Tabel Data Booking -->
+       <TableView fx:id="tableView" prefHeight="401.0" prefWidth="661.0" style="-fx-background-color: #fefefe;">
+           <columns>
+               <TableColumn fx:id="colNomor" prefWidth="44.0" text="No" />
+               <TableColumn fx:id="colNama" prefWidth="126.40000915527344" text="Nama" />
+               <TableColumn fx:id="colNamaLapangan" prefWidth="150.0" text="Nama Lapangan" />
+               <TableColumn fx:id="colTanggalBooking" prefWidth="120.0" text="Tanggal" />
+               <TableColumn fx:id="colJamMulai" prefWidth="100.0" text="Jam Mulai" />
+               <TableColumn fx:id="colJamSelesai" prefWidth="123.99993896484375" text="Jam Selesai" />
+               <TableColumn fx:id="colStatus" prefWidth="96.0" text="Status" />
+           </columns>
+       </TableView>
+   
+                <!-- Kontainer Pencarian -->
+       <HBox alignment="CENTER_RIGHT" spacing="10.0">
+      
+                   <!-- Tombol Kembali -->
+          <Button fx:id="btnKembali" onAction="#handleKembali" prefWidth="100.0" style="-fx-background-color: grey;" text="Kembali" textFill="WHITE" />
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+       </HBox>
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+</VBox>

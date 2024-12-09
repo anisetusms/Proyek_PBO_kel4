@@ -4,58 +4,41 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="MenuUser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="831.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.MenuUserController">
-    <children>
+
+<VBox alignment="CENTER" prefHeight="597.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.MenuUserController">
+   <children>
         <!-- Label untuk judul -->
-        <Label layoutX="298.0" layoutY="170.0" text="NUMERO SADA FUTSAL" textAlignment="CENTER">
+        <Label text="NUMERO SADA FUTSAL" textAlignment="CENTER" textFill="#60b478">
             <font>
                 <Font name="Bell MT Bold" size="27.0" />
             </font>
         </Label>
 
-        <!-- Logo Aplikasi -->
-        <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" layoutX="346.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                    <!-- Logo Aplikasi -->
+        <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/logo.png" />
             </image>
         </ImageView>
 
-        <!-- Kontainer untuk tombol -->
-        <VBox alignment="CENTER" layoutX="182.0" layoutY="237.0" prefHeight="239.0" prefWidth="467.0" spacing="10.0">
+                    <!-- Kontainer untuk tombol -->
+        <VBox alignment="CENTER" prefHeight="219.0" prefWidth="659.0" spacing="10.0">
             <children>
-                <!-- GridPane untuk tata letak tombol -->
-                <GridPane alignment="CENTER" hgap="10.0" prefHeight="237.0" prefWidth="467.0" vgap="10.0">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <!-- Tombol Booking Lapangan -->
-                        <Button fx:id="btnBookingLapangan" focusTraversable="true" mnemonicParsing="false" onAction="#handleBookingLapanganClick" prefHeight="39.0" prefWidth="473.0" text="Booking Lapangan" GridPane.rowIndex="1" />
+                  <!-- Tombol Booking Lapangan -->
+                  <Button fx:id="btnBookingLapangan" alignment="CENTER" contentDisplay="CENTER" focusTraversable="true" mnemonicParsing="false" onAction="#handleBookingLapanganClick" prefHeight="39.0" prefWidth="473.0" style="-fx-background-color: #60b478;" text="Booking Lapangan" textFill="WHITE" />
 
-                        <!-- Tombol Data Booking -->
-                        <Button fx:id="btnDataBooking" focusTraversable="true" mnemonicParsing="false" onAction="#handleDataBookingClick" prefHeight="39.0" prefWidth="473.0" text="Data Booking" GridPane.rowIndex="2" />
+                                          <!-- Tombol Data Booking -->
+                  <Button fx:id="btnDataBooking" focusTraversable="true" mnemonicParsing="false" onAction="#handleDataBookingClick" prefHeight="39.0" prefWidth="473.0" style="-fx-background-color: #60b478;" text="Data Booking" textFill="WHITE" />
 
-                        <!-- Tombol Daftar Lapangan -->
-                        <Button fx:id="btnDaftarLapangan" focusTraversable="true" mnemonicParsing="false" onAction="#handleDaftarLapanganClick" prefHeight="39.0" prefWidth="473.0" text="Daftar Lapangan" />
+                                          <!-- Tombol Daftar Lapangan -->
+                  <Button fx:id="btnDaftarLapangan" focusTraversable="true" mnemonicParsing="false" onAction="#handleDaftarLapanganClick" prefHeight="39.0" prefWidth="473.0" style="-fx-background-color: #60b478;" text="Daftar Lapangan" textFill="WHITE" />
 
-                        <!-- Tombol Logout -->
-                        <Button fx:id="btnLogout" focusTraversable="true" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="473.0" text="Logout" GridPane.rowIndex="3" />
-                    </children>
-                </GridPane>
+                                          <!-- Tombol Logout -->
+                  <Button fx:id="btnLogout" focusTraversable="true" mnemonicParsing="false" onAction="#handleLogout" prefHeight="39.0" prefWidth="473.0" style="-fx-background-color: #60b478;" text="Logout" textFill="WHITE" />
             </children>
         </VBox>
-    </children>
-</AnchorPane>
+   </children>
+</VBox>

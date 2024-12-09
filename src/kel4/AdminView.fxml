@@ -1,30 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="620.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.AdminViewController">
+<VBox alignment="CENTER" fillWidth="false" prefHeight="612.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.AdminViewController">
     <children>
-        <!-- Label dan TableView untuk Menampilkan Data Pengguna -->
-        <Label layoutX="20.0" layoutY="20.0" text="Manajemen Akun Pengguna" />
-        
-        <TableView fx:id="tableViewUsers" layoutX="20.0" layoutY="60.0" prefHeight="200.0" prefWidth="500.0">
-            <columns>
-                <TableColumn fx:id="columnId" prefWidth="50.0" text="ID" />
-                <TableColumn fx:id="columnUsername" prefWidth="150.0" text="Username" />
-                <TableColumn fx:id="columnNama" prefWidth="150.0" text="Nama Lengkap" />
-                <TableColumn fx:id="columnEmail" prefWidth="150.0" text="Email" />
-                <TableColumn fx:id="columnRole" prefWidth="100.0" text="Role" />
-            </columns>
-        </TableView>
-        
-        <!-- Tombol CRUD -->
-        <Button layoutX="20.0" layoutY="300.0" onAction="#handleAddUser" text="Tambah Akun" />
-        <Button layoutX="179.0" layoutY="300.0" onAction="#handleEditUser" text="Edit Akun" />
-        <Button layoutX="310.0" layoutY="300.0" onAction="#handleDeleteUser" text="Hapus Akun" />
-        <Button fx:id="btnKembali" layoutX="500.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleKembali" prefHeight="40.0" prefWidth="120.0" styleClass="button" text="Kembali" />
+        <BorderPane stylesheets="@style4.css">
+         
+            <!-- Header -->
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="0.0" spacing="10" style="-fx-padding: 15;">
+                    <Label prefHeight="30.0" prefWidth="232.0" styleClass="header-label" text="Manajemen Pengguna" textFill="#60b478">
+                        <font>
+                            <Font name="Bell MT" size="24.0" />
+                        </font>
+                    </Label>
+                </HBox>
+            </top>
+         
+            <!-- Konten Utama -->
+            <center>
+                <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                 
+                    <!-- Tabel Pengguna -->
+                    <TableView fx:id="tableViewUsers" editable="true" prefHeight="308.0" prefWidth="478.0" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="colNama" prefWidth="175.20001792907715" text="Nama Pengguna" />
+                            <TableColumn fx:id="colEmail" prefWidth="224.79998779296875" text="Email" />
+                            <TableColumn fx:id="colRole" prefWidth="200.0" text="Role" />
+                        </columns>
+                    </TableView>
+                 
+                    <!-- Form Input -->
+                    <HBox fillHeight="false">
+                        <children>
+                            <GridPane hgap="15" style="-fx-padding: 10;" vgap="15">
+                                <Label text="Nama:" textFill="#60b478" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <font>
+                                        <Font name="Bell MT Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtNama" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            
+                                <Label text="Email:" textFill="#60b478" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font name="Bell MT Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            
+                                <Label text="Role:" textFill="#60b478" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font name="Bell MT Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="comboRole" promptText="Pilih Role" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <columnConstraints>
+                                    <ColumnConstraints maxWidth="144.8000244140625" minWidth="99.9999755859375" prefWidth="112.79996337890626" />
+                                    <ColumnConstraints maxWidth="350.4000244140625" minWidth="300.0" prefWidth="337.60003662109375" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                </rowConstraints>
+                            </GridPane>
+                            <VBox fillWidth="false">
+                                <children>
+                                    <Button fx:id="btnTambah" onAction="#handleAddUser" prefWidth="75.0" style="-fx-background-color: #60b478;" styleClass="button-add" text="Tambah" textFill="WHITE">
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                        <VBox.margin>
+                                            <Insets bottom="10.0" />
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnEdit" onAction="#handleEditUser" prefWidth="75.0" style="-fx-background-color: #cfe189;" styleClass="button-edit" text="Edit">
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                        <VBox.margin>
+                                            <Insets bottom="10.0" />
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnHapus" onAction="#handleDeleteUser" prefWidth="75.0" style="-fx-background-color: pink;" styleClass="button-delete" text="Hapus">
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                        <VBox.margin>
+                                            <Insets bottom="10.0" />
+                                        </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnKembali" onAction="#handleKembali" prefWidth="75.0" style="-fx-background-color: grey;" styleClass="button-back" text="Kembali" textFill="WHITE">
+                                        <padding>
+                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                        </padding>
+                                        <VBox.margin>
+                                            <Insets />
+                                        </VBox.margin>
+                                    </Button>
+                                </children>
+                                <HBox.margin>
+                                    <Insets left="40.0" />
+                                </HBox.margin>
+                            </VBox>
+                        </children>
+                    </HBox>
+                </VBox>
+            </center>
+         
+        </BorderPane>
     </children>
-</AnchorPane>
+</VBox>

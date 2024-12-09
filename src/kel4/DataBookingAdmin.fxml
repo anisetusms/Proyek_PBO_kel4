@@ -5,10 +5,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="429.0" prefWidth="761.0" stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DataBookingAdminController">
+<AnchorPane prefHeight="429.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.DataBookingAdminController">
     <children>
-        <Label layoutX="20.0" layoutY="20.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Data Booking" />
+        <Label layoutX="20.0" layoutY="20.0" prefHeight="27.0" prefWidth="156.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Data Booking" textFill="#60b478">
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font></Label>
 
         <TableView fx:id="tableView" layoutX="20.0" layoutY="60.0" prefHeight="300.0" prefWidth="600.0">
             <columns>
@@ -21,8 +25,8 @@
             </columns>
         </TableView>
 
-        <Button fx:id="btnTerima" layoutX="650.0" layoutY="100.0" onAction="#handleTerima" prefWidth="100.0" text="Terima" />
-        <Button fx:id="btnTolak" layoutX="650.0" layoutY="150.0" onAction="#handleTolak" prefWidth="100.0" text="Tolak" />
-        <Button fx:id="btnKembali" layoutX="650.0" layoutY="300.0" onAction="#handleKembali" prefWidth="100.0" text="Kembali" />
+        <Button fx:id="btnTerima" layoutX="650.0" layoutY="100.0" onAction="#handleTerima" prefWidth="100.0" style="-fx-background-color: #60b478;" text="Terima" textFill="WHITE" />
+        <Button fx:id="btnTolak" layoutX="650.0" layoutY="150.0" onAction="#handleTolak" prefWidth="100.0" style="-fx-background-color: pink;" text="Tolak" />
+        <Button fx:id="btnKembali" layoutX="650.0" layoutY="300.0" onAction="#handleKembali" prefWidth="100.0" style="-fx-background-color: grey;" text="Kembali" textFill="WHITE" />
     </children>
 </AnchorPane>

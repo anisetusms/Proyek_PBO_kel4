@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< Updated upstream
 <?import javafx.geometry.Insets?>
-=======
->>>>>>> Stashed changes
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +13,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<<<<<<< Updated upstream
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" fillWidth="false" prefHeight="612.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.LapanganController">
@@ -132,56 +128,3 @@
       </BorderPane>
    </children>
 </VBox>
-=======
-
-<BorderPane stylesheets="@style4.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.LapanganController">
-   
-   <!-- Header -->
-   <top>
-       <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 15;">
-           <Label styleClass="header-label" text="CRUD Lapangan" />
-       </HBox>
-   </top>
-   
-   <!-- Konten Utama -->
-   <center>
-       <VBox spacing="20" style="-fx-padding: 20;">
-           
-           <!-- Tabel Lapangan -->
-           <TableView fx:id="tableView" prefHeight="300.0" prefWidth="600.0" styleClass="table-view">
-               <columns>
-                   <TableColumn fx:id="colNama" prefWidth="250.0" text="Nama Lapangan" />
-                   <TableColumn fx:id="colHarga" prefWidth="175.0" text="Harga (Rp)" />
-                   <TableColumn fx:id="colStatus" prefWidth="175.0" text="Status" />
-               </columns>
-           </TableView>
-           
-           <!-- Form Input -->
-           <GridPane hgap="15" vgap="15" style="-fx-padding: 10;">
-               <Label text="Nama Lapangan:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-               <TextField fx:id="txtNama" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
-               <Label text="Harga (Rp):" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-               <TextField fx:id="txtHarga" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-
-               <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-               <ComboBox fx:id="comboStatus" promptText="Pilih Status" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-               <columnConstraints>
-                   <ColumnConstraints minWidth="150.0" />
-                   <ColumnConstraints minWidth="300.0" />
-               </columnConstraints>
-           </GridPane>
-           
-           <!-- Tombol CRUD -->
-           <HBox alignment="CENTER" spacing="15" style="-fx-padding: 10;">
-               <Button fx:id="btnTambah" onAction="#handleTambah" text="Tambah" styleClass="button-add" />
-               <Button fx:id="btnEdit" onAction="#handleEdit" text="Edit" styleClass="button-edit" />
-               <Button fx:id="btnHapus" onAction="#handleHapus" text="Hapus" styleClass="button-delete" />
-               <Button fx:id="btnKembali" onAction="#handleKembali" text="Kembali" styleClass="button-back" />
-           </HBox>
-       </VBox>
-   </center>
-   
-</BorderPane>
->>>>>>> Stashed changes

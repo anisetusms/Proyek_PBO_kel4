@@ -7,23 +7,36 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.sql.*;
 import javafx.stage.Stage;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class AdminViewController {
 
     @FXML
     private TableView<User> tableViewUsers;
     @FXML
-    private TableColumn<User, Integer> columnId;
+    private TableColumn<User, String> colNama;
     @FXML
-    private TableColumn<User, String> columnNama;
+    private TableColumn<User, String> colEmail;
     @FXML
-    private TableColumn<User, String> columnEmail;
+    private TableColumn<User, String> colRole;
+
     @FXML
-    private TableColumn<User, String> columnRole;
-    
+    private TextField txtNama;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private ComboBox<String> comboRole;
+
+    @FXML
+    private Button btnTambah;
+    @FXML
+    private Button btnEdit;
+    @FXML
+    private Button btnHapus;
     @FXML
     private Button btnKembali;
-            
+
     private Connection conn;
 
     public AdminViewController() {
@@ -38,12 +51,17 @@ public class AdminViewController {
     @FXML
     private void initialize() {
         // Inisialisasi TableView
-        columnId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
-        columnNama.setCellValueFactory(cellData -> cellData.getValue().namaProperty());
-        columnEmail.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
-        columnRole.setCellValueFactory(cellData -> cellData.getValue().roleProperty());
+        colNama.setCellValueFactory(cellData -> cellData.getValue().namaProperty());
+        colEmail.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+        colRole.setCellValueFactory(cellData -> cellData.getValue().roleProperty());
 
         loadUsers();
+
+        // Inisialisasi ComboBox untuk role
+        comboRole.setItems(FXCollections.observableArrayList("Admin", "User"));
+
+        // Set column resize policy
+        tableViewUsers.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     private void loadUsers() {
@@ -51,9 +69,8 @@ public class AdminViewController {
         try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM users")) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                // Sesuaikan kolom sesuai dengan database
                 User user = new User(rs.getInt("id"), rs.getString("nama"), rs.getString("email"),
-                                     rs.getString("password"), rs.getString("role"));
+                        rs.getString("password"), rs.getString("role"));
                 userList.add(user);
             }
             tableViewUsers.setItems(userList);
@@ -65,14 +82,61 @@ public class AdminViewController {
 
     @FXML
     private void handleAddUser(ActionEvent event) {
-        // Logika untuk menambahkan user baru
+        String nama = txtNama.getText().trim();
+        String email = txtEmail.getText().trim();
+        String role = comboRole.getValue();
+
+        // Validasi input
+        if (nama.isEmpty() || email.isEmpty() || role == null) {
+            showAlert("Peringatan", "Semua field harus diisi!", Alert.AlertType.WARNING);
+            return;
+        }
+
+        // Hash password before saving (using a stronger algorithm like SHA-256)
+        String hashedPassword = hashPassword("password"); // For example, you should get password from input.
+
+        try (PreparedStatement ps = conn.prepareStatement(
+                "INSERT INTO users (nama, email, password, role) VALUES (?, ?, ?, ?)")) {
+            ps.setString(1, nama);
+            ps.setString(2, email);
+            ps.setString(3, hashedPassword); // Hash password sebelum simpan
+            ps.setString(4, role);
+            ps.executeUpdate();
+            showAlert("Berhasil", "Akun pengguna berhasil ditambahkan", Alert.AlertType.INFORMATION);
+            loadUsers(); // Reload data
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Terjadi kesalahan saat menambahkan akun.", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
     private void handleEditUser(ActionEvent event) {
         User selectedUser = tableViewUsers.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
-            // Logika untuk mengedit user
+            String nama = txtNama.getText().trim();
+            String email = txtEmail.getText().trim();
+            String role = comboRole.getValue();
+
+            // Validasi input
+            if (nama.isEmpty() || email.isEmpty() || role == null) {
+                showAlert("Peringatan", "Semua field harus diisi!", Alert.AlertType.WARNING);
+                return;
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(
+                    "UPDATE users SET nama = ?, email = ?, role = ? WHERE id = ?")) {
+                ps.setString(1, nama);
+                ps.setString(2, email);
+                ps.setString(3, role);
+                ps.setInt(4, selectedUser.getId());
+                ps.executeUpdate();
+                showAlert("Berhasil", "Akun pengguna berhasil diperbarui", Alert.AlertType.INFORMATION);
+                loadUsers(); // Reload data
+            } catch (SQLException e) {
+                e.printStackTrace();
+                showAlert("Error", "Terjadi kesalahan saat memperbarui akun.", Alert.AlertType.ERROR);
+            }
         } else {
             showAlert("Peringatan", "Pilih akun pengguna untuk diedit", Alert.AlertType.WARNING);
         }
@@ -100,17 +164,33 @@ public class AdminViewController {
         }
     }
 
-        @FXML
+    @FXML
     private void handleKembali() {
         Stage stage = (Stage) btnKembali.getScene().getWindow();
         SceneController.changeScene(stage, "MenuAdmin.fxml");
     }
-    
+
     private void showAlert(String title, String message, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    // Hashing password method (using SHA-256 for better security)
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashedBytes = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashedBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
