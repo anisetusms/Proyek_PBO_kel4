@@ -32,7 +32,7 @@ public class BookingLapanganController {
     // Konstruktor untuk mengatur koneksi database
     public BookingLapanganController() {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookingfutsal", "root", "anisetus");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookingfutsal", "root", "");
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert("Kesalahan Koneksi", "Tidak dapat terhubung ke database: " + e.getMessage(), AlertType.ERROR);

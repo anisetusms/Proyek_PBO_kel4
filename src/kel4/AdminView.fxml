@@ -15,17 +15,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" fillWidth="false" prefHeight="612.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.AdminViewController">
+<VBox alignment="CENTER" fillWidth="false" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.AdminViewController">
     <children>
-        <BorderPane stylesheets="@style4.css">
+        <BorderPane prefHeight="550.0" prefWidth="777.0" stylesheets="@style4.css">
          
             <!-- Header -->
             <top>
                 <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="0.0" spacing="10" style="-fx-padding: 15;">
-                    <Label prefHeight="30.0" prefWidth="232.0" styleClass="header-label" text="Manajemen Pengguna" textFill="#60b478">
+                    <Label prefHeight="30.0" prefWidth="244.0" styleClass="header-label" text="Manajemen Pengguna" textFill="#60b478">
                         <font>
-                            <Font name="Bell MT" size="24.0" />
+                            <Font name="Bell MT Bold" size="24.0" />
                         </font>
+                  <HBox.margin>
+                     <Insets left="5.0" />
+                  </HBox.margin>
                     </Label>
                 </HBox>
             </top>
@@ -35,7 +38,7 @@
                 <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
                  
                     <!-- Tabel Pengguna -->
-                    <TableView fx:id="tableViewUsers" editable="true" prefHeight="308.0" prefWidth="478.0" styleClass="table-view">
+                    <TableView fx:id="tableViewUsers" editable="true" prefHeight="308.0" prefWidth="750.0" styleClass="table-view">
                         <columns>
                             <TableColumn fx:id="colNama" prefWidth="175.20001792907715" text="Nama Pengguna" />
                             <TableColumn fx:id="colEmail" prefWidth="224.79998779296875" text="Email" />
@@ -44,7 +47,7 @@
                     </TableView>
                  
                     <!-- Form Input -->
-                    <HBox fillHeight="false">
+                    <HBox alignment="TOP_RIGHT" fillHeight="false">
                         <children>
                             <GridPane hgap="15" style="-fx-padding: 10;" vgap="15">
                                 <Label text="Nama:" textFill="#60b478" GridPane.columnIndex="0" GridPane.rowIndex="0">
@@ -66,7 +69,7 @@
                                         <Font name="Bell MT Bold" size="14.0" />
                                     </font>
                                 </Label>
-                                <ComboBox fx:id="comboRole" promptText="Pilih Role" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <ComboBox fx:id="comboRole" promptText="Pilih Role" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                 <columnConstraints>
                                     <ColumnConstraints maxWidth="144.8000244140625" minWidth="99.9999755859375" prefWidth="112.79996337890626" />
                                     <ColumnConstraints maxWidth="350.4000244140625" minWidth="300.0" prefWidth="337.60003662109375" />
@@ -77,6 +80,7 @@
                                     <RowConstraints />
                                 </rowConstraints>
                             </GridPane>
+                     <HBox prefHeight="100.0" prefWidth="135.0" />
                             <VBox fillWidth="false">
                                 <children>
                                     <Button fx:id="btnTambah" onAction="#handleAddUser" prefWidth="75.0" style="-fx-background-color: #60b478;" styleClass="button-add" text="Tambah" textFill="WHITE">

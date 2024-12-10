@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" prefHeight="597.0" prefWidth="727.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.MenuUserController">
+<VBox alignment="CENTER" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.MenuUserController">
    <children>
         <!-- Label untuk judul -->
         <Label text="NUMERO SADA FUTSAL" textAlignment="CENTER" textFill="#60b478">

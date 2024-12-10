@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vboxContainer" alignment="CENTER" prefHeight="465.0" prefWidth="635.0" style="-fx-background-color: #cafof8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.RegistrasiController">
+<VBox fx:id="vboxContainer" alignment="CENTER" prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #cafof8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.RegistrasiController">
    <children>
       <Label text="NUMERO SADA FUTSAL" textFill="#60b478">
          <font>

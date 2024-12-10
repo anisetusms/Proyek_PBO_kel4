@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" prefHeight="547.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.MenuAdminController">
+<VBox alignment="CENTER" prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kel4.MenuAdminController">
    <children>
       <!-- Logo -->
       <ImageView fx:id="imageLogo" fitHeight="180.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
